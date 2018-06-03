@@ -1,0 +1,28 @@
+.Dropdown {
+    padding: 0 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    * { transition: all .1s; }
+}
+.option {
+    cursor: pointer;
+    &.radio-option {
+        margin-right: 15px
+    }
+    &.check-option {
+        margin-bottom: 5px;
+        &:hover {
+            padding-left: 20px;
+        }
+    }
+}
+.option-icon {
+    margin-right: 5px;
+}
+.options-container {
+    margin-top: 5px;
+}
+
+.placeholder-text {
+    color: #999;
+}
