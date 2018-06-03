@@ -14,6 +14,18 @@ class AllOrAnyDropdown extends Component {
     this.setValues = this.setValues.bind(this)
     this.toggleDropdown = this.toggleDropdown.bind(this)
     this.docClickHandler = this.docClickHandler.bind(this)
+    this.clearSelection = this.clearSelection.bind(this)
+  }
+
+  // clear options selection
+  clearSelection() {
+    const { include } = this.state;
+    this.setState({
+      values: []
+    }, () => {
+      if (!include) { return this.setInclude(); } // set include to default 'all' if it's not selected yet
+      this.onSelection(); // update the form enclosing this component with the selected options
+    });
   }
 
   // set inclusion of options property
@@ -128,6 +140,8 @@ class AllOrAnyDropdown extends Component {
             e.stopPropagation();
             e.stopImmediatePropagation ? e.stopImmediatePropagation() : e.nativeEvent.stopImmediatePropagation();
           }} className="col-12 form-control options-container">
+
+            <hr/>
             
             {/********* start of ********* custom radio buttons behavior for all / any selection */}
             <div className="d-flex"> 
@@ -160,6 +174,18 @@ class AllOrAnyDropdown extends Component {
               })}
             </div>
             {/********* end of *********  custom multiselect behavior */}
+
+            {values && values.length > 0 && <hr/>}
+
+            {/********* start of *********  clear options selection button */}
+            {
+              values && values.length > 0 && <div onClick={this.clearSelection} className="option d-flex align-items-center">
+                <i className="fas fa-times option-icon"></i> Clear
+              </div>
+            }
+            {/********* end of *********  clear options selection button */}
+
+            <hr/>
           </div>
         }
       </div>
