@@ -141,8 +141,6 @@ class AllOrAnyDropdown extends Component {
             e.stopImmediatePropagation ? e.stopImmediatePropagation() : e.nativeEvent.stopImmediatePropagation();
           }} className="col-12 form-control options-container">
 
-            <hr/>
-            
             {/********* start of ********* custom radio buttons behavior for all / any selection */}
             <div className="d-flex"> 
               {/* using index as the key for we are handling plain arrays but not array of objects with a proper id */}
@@ -185,7 +183,6 @@ class AllOrAnyDropdown extends Component {
             }
             {/********* end of *********  clear options selection button */}
 
-            <hr/>
           </div>
         }
       </div>
